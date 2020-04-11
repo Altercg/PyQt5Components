@@ -13,8 +13,12 @@ setToolTip('xxx')	#设置提示
 linkHovered：划过控件触发
 linkActivated：单击控件触发
 '''
+'''
+QLabel与伙伴关系
+mainLaout.addWidget(控件对象, rowIndex,columnIndex, row,column) 前两个数是控件在栅格的位置，后两个数是空间的尺寸
+'''
 import sys
-from PyQt5.QtWidgets import QMainWindow, QWidget, QApplication, QLabel, QVBoxLayout
+from PyQt5.QtWidgets import QMainWindow, QWidget, QApplication, QLabel, QVBoxLayout, QLineEdit, QGridLayout
 from PyQt5.QtGui import QPalette, QPixmap
 from PyQt5.QtCore import Qt
 
@@ -51,6 +55,16 @@ class QLabelDemo(QWidget):
         label1.linkHovered.connect(self.link_hovered)   # label1与label3的text一定要是超链接
         label3.linkActivated.connect(self.linkClicked)
 
+        ''' 
+        伙伴控件
+        nameLabel = QLabel('&Name', self)
+        nameLineEdit = QLineEdit(self)
+        nameLabel.setBuddy(nameLineEdit)
+        
+        mainLayout = QGridLayout(self)
+        mainLayout.addWidget(nameLabel, 0, 0)
+        mainLayout.addWidget(nameLabel, 0, 1, 1, 2)
+        '''
         self.setLayout(vbox)
         self.setWindowTitle('QLabel')
 

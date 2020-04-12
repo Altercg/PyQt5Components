@@ -1,15 +1,15 @@
-'''
+"""
 QLineEdit的回显模式(EchoMode)
 1.Normal    正常显示
 2.NoEcho    不显示但是其实已经输入了
 3.Password  密码模式
 4.PasswordEchoOnEdit
-'''
-'''
-QLineEdit的限制输入
-setValidator()
-QLineEdit的掩码限制输入
-setInputMask('')
+
+setMaxLength(4)     设置最大值9999
+setValidator()      QLineEdit的限制输入
+setFont('xx',20)    设置字体
+setReadOnly(True)   设置文本输入框的只读模式
+setInputMask('')    QLineEdit的掩码限制输入
 A ASCII字母字符是必须的，取值空间是A-Z,a-z
 a ASCII字母字符是允许的但不是必须的.
 N ASCII字母字符是必须的. A-Z, a-z, 0-9.
@@ -29,7 +29,16 @@ b 二进制数据字符是允许的，但不是必须要的.
 < 所有的字符字幕都是小写的.
 ! 关闭大小写.
 \ 使用 \ 去转义上面的字符，如果再需要显示上述字符的时候.
-'''
+
+两个槽
+edit.textChanged.connect(self.textchanged)
+edit.editingFinished.connect(self.enterpress)
+def textchanged(self):
+    pass
+def enterpress:
+    pass
+
+"""
 import sys
 from PyQt5.QtWidgets import QMainWindow, QWidget, QApplication, QLabel, QFormLayout, QLineEdit
 from PyQt5.QtCore import QRegExp

@@ -12,21 +12,21 @@ from PyQt5.QtWidgets import QTextEdit
 
 class QText(QWidget):
     def __init__(self):
-        super().__init__()
+        super(QText, self).__init__()
         self.initUI()
 
     def initUI(self):
-        textEdit = QTextEdit()
-        buttonText = QPushButton('显示文本')
+        self.textEdit = QTextEdit()
+        self.buttonText = QPushButton('显示文本')
 
         layout = QVBoxLayout()
-        layout.addWidget(textEdit)
-        layout.addWidget(buttonText)
+        layout.addWidget(self.textEdit)
+        layout.addWidget(self.buttonText)
         self.setLayout(layout)
 
-        self.buttonText.clicked.connect(self.onclink)
+        self.buttonText.clicked.connect(self.onclick)
 
-    def onclink(self):
+    def onclick(self):
         self.textEdit.setPlainText('hello')
         # self.textEdit.setHtml('<font color="blue" >world </font>')
         # self.textEdit.toHtml('')

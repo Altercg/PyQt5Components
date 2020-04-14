@@ -11,7 +11,10 @@ QColorDialog
 QFontDialog
 
 QFileDialog
-
+    fname, _ = QFileDialog.getOpenFileName(self,'标题','.(路径)','图像文件(*.jpg *png)')
+    setFileMode() #打开文件类型，QFileDialog.AnyFile任何文件 QFileDialog.ExistingFile已存在的文件 QFileDialog.Directory文件目录
+    setFilter(QDir.Files)   # 过滤器，只显示过滤器允许的文件类型
+    selectedFiles()
 QInputDialog
     item, ok = QInputDialog.getItem(self,'标题','语言列表'，items)    #items = ('c', 'c++', 'Python')
     text, ok = QInputDialog.getText(self,'标题','输入姓名')

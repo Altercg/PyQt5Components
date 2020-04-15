@@ -27,19 +27,11 @@ class PrintSupport(QMainWindow):
         screen = self.editor.grab()         # 获得editor的内容
         painter.drawPixmap(10, 10, screen)
         painter.end()
-
         print("print")
 
 
-
-
-
 if __name__ == '__main__':
-
     app = QtWidgets.QApplication(sys.argv)
-
     gui = PrintSupport()
-
     gui.show()
-
     app.exec_()
